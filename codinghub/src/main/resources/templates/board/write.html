@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<h2>글작성 화면</h2>
+	
+	<div>
+	
+		<form action="registContent" method="get">
+		
+			제목 : <input type="text" name="title"> <br>
+			내용 : <textarea cols="22" name="content"></textarea> <br>
+			<input type="submit" value="등록">
+			<button type="button" onclick="cancle()">취소</button>
+			
+		</form>
+		
+	</div>
+
+</body>
+
+	<script>
+	
+		var msg = '[[${msg}]]';
+		if(msg != ''){
+			alert(msg);
+		}
+	
+		function cancle(){
+			location.href="/board/board";
+		}
+	
+	</script>
+
+</html>

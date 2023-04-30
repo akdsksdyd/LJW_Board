@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.codinghub.service.BoardMapper">
+  
+  	<insert id="registContent" parameterType="BoardVO">
+ 	
+ 		insert into BOARD (title,
+ 						   content,
+ 						   date,
+ 						   id)
+ 					values(#{title},
+ 						   #{content},
+ 						   now(),
+ 						   #{id})
+ 	
+ 	</insert>
+ 	
+ 	<select id="getList" resultType="BoardVO">
+ 	
+ 		select bno, title, date, id from BOARD order by bno desc
+ 	
+ 	</select>
+ 	
+ 	<select id="getContent" resultType="BoardVO">
+ 	
+ 		select bno, title, content, date, id from BOARD where bno = #{bno}
+ 	
+ 	</select>
+ 	
+ 	<select id="linkContent" resultType="String">
+ 	
+ 		select content from BOARD
+ 	
+ 	</select>
+  
+  </mapper>

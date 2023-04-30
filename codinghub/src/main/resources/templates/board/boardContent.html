@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="/css/boardContent.css">
+</head>
+<body>
+	
+	<h2>게시글 상세화면</h2>
+	
+	<div class="wrap">
+	
+		<ul>
+		
+			<li>
+			
+				<table class="contentBox">
+					
+					<tr>
+					
+						<th>작성자</th>
+						<th>제목</th>
+						<th>내용</th>
+						<th>생성날짜</th>
+						
+					</tr>
+					
+					<tr>
+					
+						<td>[[${boardVo.id}]]</td>
+						<td>[[${boardVo.title}]]</td>
+						<td>[[${boardVo.content}]]</td>
+						<td>[[${boardVo.date}]]</td>
+					
+					</tr>
+					
+				</table>
+			
+			</li>
+		
+		</ul>
+		<ul>
+		
+			<li>
+			
+				<table class="contentBox">
+					
+					<tr>
+					
+						<th>연관 게시글 내용</th>
+						
+					</tr>
+					
+					<tr th:each="vo : ${linkList}">
+					
+						<td>[[${vo}]]</td>
+						
+					
+					</tr>
+					
+				</table>
+			
+			</li>
+		
+		</ul>
+		<button type="button" onclick="location.href='/board/board'">목록으로</button>
+	
+	</div>
+	
+</body>
+</html>

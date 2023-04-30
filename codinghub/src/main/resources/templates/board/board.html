@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="/css/board.css">
+</head>
+<body>
+	
+	<h2>게시판 화면</h2>
+	
+	<div class="wrap">
+	
+		<ul>
+		
+			<li>
+			
+				<table class="contentBox">
+					
+					<tr>
+					
+						<th>글번호</th>
+						<th>작성자</th>
+						<th>제목</th>
+						<th>생성날짜</th>
+						
+					</tr>
+					
+					<tr th:each="vo, status : ${list}">
+					
+						<td>[[${status.count}]]</td>
+						<td>[[${vo.id}]]</td>
+						<td><a title="게시글보기(클릭)" th:href="@{boardContent(bno=${vo.bno})}">[[${vo.title}]]</a></td>
+						<td>[[${vo.date}]]</td>
+					
+					</tr>
+					
+				</table>
+			
+			</li>
+		
+		</ul>
+		<button type="button" onclick="location.href='/board/write'">글작성</button>
+	
+	</div>
+	
+</body>
+
+<script>
+
+	var msg = '[[${msg}]]';
+	if(msg != ''){
+		alert(msg);
+	}
+
+</script>
+
+</html>
